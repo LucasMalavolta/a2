@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clube Otaku</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1 onclick="showHome()">Clube Otaku</h1>
+        <nav>
+            <span class="header-link" onclick="showLogin()">Login</span>
+            <span class="header-link" onclick="showCart()">Carrinho</span>
+        </nav>
+    </header>
+
+    <main id="content">
+        <h2 class="subtitle">Seja bem-vindo ao mundo de pelúcia</h2>
+
+        <div class="categories">
+            <div class="category" onclick="showCategory('pokemon')">Pokemon</div>
+            <div class="category" onclick="showCategory('disney')">Disney</div>
+            <div class="category" onclick="showCategory('anime')">Anime</div>
+            <div class="category" onclick="showCategory('trico')">Tricô</div>
+        </div>
+
+        <div class="carousel" id="carousel">
+            <img src="imagens/inicial/1.jpg" alt="Imagem 1" class="carousel-img">
+            <img src="imagens/inicial/2.jpg" alt="Imagem 2" class="carousel-img">
+            <img src="imagens/inicial/3.jpg" alt="Imagem 3" class="carousel-img">
+            <img src="imagens/inicial/4.jpg" alt="Imagem 4" class="carousel-img">
+        </div>
+    </main>
+
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImg">
+        <div class="caption" id="caption"></div>
+    </div>
+
+    <footer>
+        <div class="footer-info">Site meramente ilustrativo</div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
