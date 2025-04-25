@@ -1,3 +1,19 @@
+// Funcionalidade do modal
+var modal = document.getElementById("myModal");
+var modalImg = document.getElementById("img01");
+
+var images = document.querySelectorAll('.product-img');
+images.forEach(function(image) {
+    image.addEventListener('click', function() {
+        modal.style.display = "block";
+        modalImg.src = image.src; // Define a imagem no modal
+    });
+});
+
+function closeModal() {
+    modal.style.display = "none";
+}
+
 const produtos = {
   pokemon: [
       { name: "Pikachu", description: "O Pokémon mais icônico.", price: 55.00, images: ["imagens/pokemon/poke2.jpg"] },
