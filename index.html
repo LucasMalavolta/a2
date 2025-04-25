@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,54 +7,41 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <header>
-        <h1 onclick="window.location.href='index.html'">Clube Otaku</h1>
+        <h1 onclick="showHome()">Clube Otaku</h1>
         <nav>
-            <a href="#" class="header-link">Produtos</a>
-            <a href="#" class="header-link">Sobre</a>
+            <span class="header-link" onclick="showLogin()">Login</span>
+            <span class="header-link" onclick="showCart()">Carrinho</span>
         </nav>
     </header>
 
-    <section class="categories">
-        <div class="category">Pokémon</div>
-        <div class="category">Disney</div>
-        <div class="category">Anime</div>
-        <div class="category">Tricô</div>
-    </section>
+    <main id="content">
+        <h2 class="subtitle">Seja bem-vindo ao mundo de pelúcia</h2>
 
-    <section class="subtitle">
-        <h2>Produtos em Destaque</h2>
-    </section>
-
-    <section class="product-container">
-        <!-- Exemplo de Produto -->
-        <div class="product">
-            <img src="pokemon-plush.jpg" alt="Pelúcia Pokémon" class="product-img">
-            <div class="product-info">
-                <h3>Pelúcia Pikachu</h3>
-                <p>Pelúcia fofinha e macia do Pikachu, tamanho 25cm.</p>
-            </div>
+        <div class="categories">
+            <div class="category" onclick="showCategory('pokemon')">Pokemon</div>
+            <div class="category" onclick="showCategory('disney')">Disney</div>
+            <div class="category" onclick="showCategory('anime')">Anime</div>
+            <div class="category" onclick="showCategory('trico')">Tricô</div>
         </div>
 
-        <div class="product">
-            <img src="disney-plush.jpg" alt="Pelúcia Disney" class="product-img">
-            <div class="product-info">
-                <h3>Pelúcia Mickey</h3>
-                <p>Pelúcia do Mickey, tamanho 30cm, qualidade excelente.</p>
-            </div>
+        <div class="carousel" id="carousel">
+            <img src="imagens/inicial/1.jpg" alt="Imagem 1" class="carousel-img">
+            <img src="imagens/inicial/2.jpg" alt="Imagem 2" class="carousel-img">
+            <img src="imagens/inicial/3.jpg" alt="Imagem 3" class="carousel-img">
+            <img src="imagens/inicial/4.jpg" alt="Imagem 4" class="carousel-img">
         </div>
-    </section>
+    </main>
 
-    <!-- Modal de Imagem -->
-    <div id="myModal" class="modal">
+    <div id="imageModal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="img01">
+        <img class="modal-content" id="modalImg">
+        <div class="caption" id="caption"></div>
     </div>
 
     <footer>
-        <div class="footer-info">
-            <p>&copy; 2025 Clube Otaku. Todos os direitos reservados.</p>
-        </div>
+        <div class="footer-info">Site meramente ilustrativo</div>
     </footer>
 
     <script src="script.js"></script>
