@@ -91,12 +91,21 @@ nav {
 .product {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 20px;
   margin: 10px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   max-width: 600px;
+  width: 100%; /* Garante que o produto ocupe todo o espaço disponível */
+}
+
+.product-img {
+  width: 150px;
+  height: 150px; /* Defina altura e largura iguais para padronizar o tamanho */
+  object-fit: cover; /* Garante que a imagem não distorça */
+  cursor: pointer;
 }
 
 .product-info {
@@ -104,10 +113,13 @@ nav {
   margin-left: 20px;
 }
 
-.product-img {
-  width: 150px;
-  height: auto;
-  cursor: pointer;
+.product-info h3, .product-info p {
+  margin: 0;
+}
+
+.product-info p {
+  font-size: 14px;
+  color: #666;
 }
 
 .cart-product {
