@@ -20,7 +20,7 @@ const produtos = {
 let cart = [];
 
 function showHome() {
-  document.getElementById('content').innerHTML = 
+  document.getElementById('content').innerHTML = `
       <h2 class="subtitle">Seja bem-vindo ao mundo de pelúcia</h2>
       <div class="categories">
           <div class="category" onclick="showCategory('pokemon')">Pokemon</div>
@@ -33,15 +33,15 @@ function showHome() {
           <img src="imagens/inicial/2.jpg" class="carousel-img">
           <img src="imagens/inicial/3.jpg" class="carousel-img">
           <img src="imagens/inicial/4.jpg" class="carousel-img">
-      </div>;
+      </div>`;
   startCarousel();
 }
 
 function showCategory(category) {
-  let content = <h2 style="text-align: center;">${capitalizeFirstLetter(category)}</h2>;
-  content += <div class="product-container">;
+  let content = `<h2 style="text-align: center;">${capitalizeFirstLetter(category)}</h2>`;
+  content += `<div class="product-container">`;
   produtos[category].forEach((product, index) => {
-      content += <div class="product" onclick="showProduct('${category}', ${index})">
+      content += `<div class="product" onclick="showProduct('${category}', ${index})">
                       <img src="${product.images[0]}" alt="${product.name}" class="product-img"> 
                       <div class="product-info">
                           <h3>${product.name}</h3>
@@ -49,28 +49,28 @@ function showCategory(category) {
                           <p><strong>R$${product.price.toFixed(2)}</strong></p>
                           <button onclick="addToCart(${index}, '${category}'); event.stopPropagation();">Adicionar ao carrinho</button>
                       </div>
-                  </div>;
+                  </div>`;
   });
-  content += </div>;
+  content += `</div>`;
   document.getElementById('content').innerHTML = content;
 }
 
 function showProduct(category, index) {
   const product = produtos[category][index];
-  let content = <h2 style="text-align: center;">${product.name}</h2>;
-  content += <div style="display: flex; justify-content: center; align-items: center;">;
-  content += <img src="${product.images[0]}" alt="${product.name}" class="product-img" id="mainImage" onclick="openModal('${product.images[0]}')">;
-  content += <div style="margin-left: 20px;">
+  let content = `<h2 style="text-align: center;">${product.name}</h2>`;
+  content += `<div style="display: flex; justify-content: center; align-items: center;">`;
+  content += `<img src="${product.images[0]}" alt="${product.name}" class="product-img" id="mainImage" onclick="openModal('${product.images[0]}')">`;
+  content += `<div style="margin-left: 20px;">
                   <p>${product.description}</p>
                   <p><strong>R$${product.price.toFixed(2)}</strong></p>
                   <button onclick="addToCart(${index}, '${category}')">Adicionar ao carrinho</button>
-                  <div class="image-gallery" style="margin-top: 10px;">;
+                  <div class="image-gallery" style="margin-top: 10px;">`;
   
   product.images.forEach((img) => {
-      content += <img src="${img}" alt="${product.name}" style="width: 80px; margin: 5px;" onclick="openModal('${img}')">;
+      content += `<img src="${img}" alt="${product.name}" style="width: 80px; margin: 5px;" onclick="openModal('${img}')">`;
   });
 
-  content += </div></div></div>;
+  content += `</div></div></div>`;
   document.getElementById('content').innerHTML = content;
 }
 
@@ -101,7 +101,7 @@ function addToCart(index, category) {
 function updateCartCount() {
   const cartCount = cart.length > 0 ? cart.length : '';
   const cartLink = document.querySelector('.header-link:nth-child(2)');
-  cartLink.innerText = cartCount ? Carrinho (${cartCount}) : 'Carrinho';
+  cartLink.innerText = cartCount ? `Carrinho (${cartCount})` : 'Carrinho';
 }
 
 function showCart() {
@@ -113,16 +113,16 @@ function showCart() {
       let totalValue = 0;
       cart.forEach((product, index) => {
           totalValue += product.price;
-          content += <div class="cart-product">
+          content += `<div class="cart-product">
                           <div style="flex: 1; text-align: left;">
                               <h3>${product.name}</h3>
                               <p><strong>R$${product.price.toFixed(2)}</strong></p>
                           </div>
                           <img src="${product.images[0]}" alt="${product.name}">
                           <button onclick="removeFromCart(${index})">Remover</button>
-                      </div>;
+                      </div>`;
       });
-      content += <div style="text-align: right; margin-top: 20px;"><strong>Valor Total: R$${totalValue.toFixed(2)}</strong></div>;
+      content += `<div style="text-align: right; margin-top: 20px;"><strong>Valor Total: R$${totalValue.toFixed(2)}</strong></div>`;
   }
   content += '</div>';
   document.getElementById('content').innerHTML = content;
